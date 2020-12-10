@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Script to install dependencies for a developer on Apple Silicon M1. 
-# Pre-requisites: Git
+# Pre-requisites: Git, Zsh (Mac uses zsh by default)
 # Note: that all dependencies installed through homebrew by default will be done through Rosetta 2 since M1 doesnt't have native support for all formulas.
 # Note: Homebrew in rosetta is installed in /usr/local/bin. When M1 support arrives it will be installed in /opt
 # Node v15 works on Mac M1 for now. 
