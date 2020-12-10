@@ -1,5 +1,13 @@
 #!/bin/sh
 
+check_install_result() {
+    if [ $? -eq 0 ]; then
+        echo "$1 installed successfully (under Rosetta 2)\n"
+    else
+        echo "$2\n"
+    fi 
+}
+
 echo "\n---------------------Welcome to dev setup Part I...---------------------\n"
 echo "This includes setting up of homebrew and installing basic dependencies...\n"
 
@@ -11,31 +19,31 @@ else
     echo "Brew is already installed... Moving ahead...\n"
 fi
 
-commands=("zsh-syntax-higlighting" "go" "android-platform-tools")
+commands=("zsh-syntax-higlighting" "go" "android-platform-tools" "htop" "openjdk")
+prefix="arch -x86_64"
 bold=$(tput bold)
 
 # Installing zsh syntax highlighter
 echo "${bold}1. Zsh syntax highlighting"
-zsh_syntax=$(arch -x86_64 brew install ${commands[0]})
-if [ $? -eq 0 ]; then
-    echo "${commands[0]} installed successfully (under Rosetta 2)\n"
-else
-    echo "$zsh_syntax\n"
-fi
+zsh_syntax=$(${prefix} brew install ${commands[0]})
+check_install_result "${commands[0]}" "$zsh_syntax"
 
 # Installing go
 echo "${bold}2. Go\n"
-go=$(arch -x86_64 brew install ${commands[1]})
-if [ $? -eq 0 ]; then
-    echo "Go installed successfully (under Rosetta 2)\n"
-else
-    echo "$go\n"
-fi
+go=$(${prefix} brew install ${commands[1]})
+check_install_result "${commands[1]}" "$go"
 
 # Installing adb
-adb=$(arch -x86_64 brew install ${commands[2]})
-if [ $? -eq 0 ]; then
-    echo "${commands[2]} installed successfully (under Rosetta 2)\n"
-else
-    echo "$adb\n"
-fi
+echo "${bold}3. ADB\n"
+adb=$(${prefix} brew install ${commands[2]})
+check_install_result "${commands[2]}" "$adb"
+
+# Installing htop
+echo "${bold}4. Htop\n"
+htop=$(${prefix} brew install ${commands[3]})
+check_install_result "${commands[3]}" "$htop"
+
+# Installing openjdk
+echo "${bold}5. Openjdk\n"
+jdk=$(${prefix} brew install ${commands[4]})
+check_install_result "${commands[4]}" "$jdk"
