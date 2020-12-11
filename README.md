@@ -14,6 +14,7 @@ This repository handles installation of dependencies on Apple Silicon M1. The pr
 ## Dependencies
 
 * Zsh (default shell in Mac os)
+* Installation of `oh-my-zsh` is recommended since it has default tools and plugins. Refer `prereq.sh` file for installations.
 * Git (Xcode Command line tools. If not present run `xcode-select --install`)
 
 ## Part 1
@@ -27,7 +28,11 @@ Part 1 deals with installing basic dependencies necessary for developer to get s
 - [x] Htop
 - [x] Node.JS (As of now, only v15 is supported)
 - [x] NVM (Node Version Manager)
+- [x] Heroku CLI
+- [x] Yarn
 - [ ] Python (WIP)
+
+Note that `Node.JS` would take a bit of time to install, as it needs to be built from source. This might involve usage of all cores and laptop getting a bit hot.
 
 ## Disclaimer
 
