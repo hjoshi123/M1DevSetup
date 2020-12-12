@@ -50,6 +50,6 @@ Note that `Node.JS` would take a bit of time to install, as it needs to be built
 
 Note that `homebrew` under Rosetta is installed in `/usr/local/bin`. The official M1 supported version would be installed in `/opt/homebrew`. Whichever brew is in your path first will run when you use brew. If it’s the `/usr/local` one, you’ll need to add the `arch -x86_64` prefix every time. Your best bet for using both is to alias one of them.
 
-To avoid this situation, what could be done is that Rosetta Homebrew could be given an alias like `ibrew` so that your brew points to the actual `ARM M1` version when the full support comes. This is a WIP and I will update the scripts so that we can have a native brew and an `rbrew` for Rosetta 2.
+To avoid this situation, what could be done is that Rosetta Homebrew could be given an alias like `ibrew` so that your brew points to the actual `ARM M1` version when the full support comes. This is a WIP and I will update the scripts so that we can have a native brew and an `ibrew` for Rosetta 2.
 
 Some things might be broken in the script, I am working to fix the problems. Your comments and suggestions in the form of issues are always appreciated.
