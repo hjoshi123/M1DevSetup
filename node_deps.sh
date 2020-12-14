@@ -6,7 +6,7 @@
 bold=$(tput bold)
 
 # Installing node
-printf "\n${bold}6. Node.JS (Only v15 supported as of now)\n"
+printf "\n${bold}Node.JS (Only v15 supported as of now)\n"
 printf "Refer here for more details: https://github.com/nvm-sh/nvm/issues/2350\n"
 . ~/.nvm/nvm.sh
 nvm > /dev/null
@@ -39,7 +39,11 @@ fi
 
 node -v
 if [ $? -eq 0 ]; then
-    npm install -g yarn
+    yarn -v
+    if ! [ $? -eq 0 ]; then
+        npm install -g yarn
+    else
+        printf "\n${bold}Yarn installed\n"
 else
     printf "${bold}Node.JS is not installed. Please try again..."
 fi

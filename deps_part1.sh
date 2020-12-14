@@ -8,6 +8,9 @@
 
 # Author: Hemant Joshi
 
+# TODO: Create python installation using pyenv (create py_deps.sh)
+# TODO: Install php, mongo, mysql, postgresql
+
 source ~/.zshrc
 
 bold=$(tput bold)
@@ -26,7 +29,7 @@ printf "${bold}This includes setting up of homebrew and installing basic depende
 if ! [ -x "$(command -v brew)" ]; then
     printf "${bold}\nHomebrew is not installed... Installing homebrew under Rosetta for now...\n"
     arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-    echo 'alias ibrew="arch -x86_64 brew"' >> ~/.zshrc
+    echo 'alias ibrew="arch -x86_64 /usr/local/bin/brew"' >> ~/.zshrc
     source ~/.zshrc
 else
     printf "\nBrew is already installed... Moving ahead...\n\n"
@@ -38,69 +41,38 @@ commands_install=(
     android-platform-tools 
     htop 
     openjdk
-    heroku
+    redis
+    pyenv
 )
 
-# Installing zsh syntax highlighter
-printf "${bold}1. Zsh syntax highlighting\n"
-ibrew info ${commands_install[1]} > /dev/null
-if [ $? -eq 0 ]; then
-    printf "${commands_install[1]} installed successfully\n"
-else
-    ibrew install ${commands_install[1]}
-    check_install_result "${commands_install[1]}"
-fi
+for j in $commands_install
+do
+    printf "${bold}Installing $j\n"
+    ibrew list $j > /dev/null
+    if [ $? -eq 0 ]; then
+        printf "$j already installed successfully\n\n"
+    else
+        ibrew install $j
+        check_install_result "$j"
+    fi
+done
 
-# Installing go
-printf "\n${bold}2. Go\n"
-ibrew info ${commands_install[2]} > /dev/null
+java --version
 if [ $? -eq 0 ]; then
-    printf "${commands_install[2]} installed successfully\n"
+    printf "\n${bold} Java setup successfull"
 else
-    ibrew install ${commands_install[2]}
-    check_install_result "${commands_install[2]}"
-fi
-
-# Installing adb
-printf "\n${bold}3. ADB\n"
-ibrew info ${commands_install[3]} > /dev/null
-if [ $? -eq 0 ]; then
-    printf "${commands_install[3]} installed successfully\n"
-else
-    ibrew install ${commands_install[3]}
-    check_install_result "${commands_install[3]}"
-fi
-
-# Installing htop
-printf "\n${bold}4. Htop\n"
-ibrew info ${commands_install[4]} > /dev/null
-if [ $? -eq 0 ]; then
-    printf "${commands_install[4]} installed successfully\n"
-else
-    ibrew install ${commands_install[4]}
-    check_install_result "${commands_install[4]}"
-fi
-
-# Installing openjdk
-printf "\n${bold}5. Openjdk\n"
-ibrew info ${commands_install[5]} > /dev/null
-if [ $? -eq 0 ]; then
-    printf "${commands_install[5]} installed successfully\n"
-else
-    ibrew install ${commands_install[5]}
     `sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk`
-    check_install_result "${commands_install[5]}"
 fi
 
 # Installing heroku-cli
-printf "\n${bold}6. Heroku CLI\n"
-ibrew info ${commands_install[6]} > /dev/null
+printf "\n${bold} Heroku CLI\n"
+ibrew list heroku > /dev/null
 if [ $? -eq 0 ]; then
-    printf "${commands_install[6]} installed successfully\n"
+    printf "heroku installed successfully\n"
 else
     ibrew tap heroku/brew > /dev/null
-    ibrew install ${commands_install[6]}
-    check_install_result "${commands_install[6]}"
+    ibrew install heroku
+    check_install_result "heroku"
 fi
 
 zsh node_deps.sh
