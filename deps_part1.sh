@@ -82,3 +82,11 @@ if [ $? -eq 0 ]; then
 else
     printf "${bold}\nYarn not installed\n"
 fi
+
+zsh py_deps.sh
+python --version
+if [ $? -eq 0 ]; then
+    printf "${bold}\nPython Installed...\n"
+else
+    printf "${bold}\nReinstall python\n"
+fi

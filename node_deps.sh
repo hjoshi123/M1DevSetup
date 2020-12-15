@@ -44,6 +44,7 @@ if [ $? -eq 0 ]; then
         npm install -g yarn
     else
         printf "\n${bold}Yarn installed\n"
+    fi
 else
     printf "${bold}Node.JS is not installed. Please try again..."
 fi
