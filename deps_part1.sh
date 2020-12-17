@@ -8,7 +8,6 @@
 
 # Author: Hemant Joshi
 
-# TODO: Create python installation using pyenv (create py_deps.sh)
 # TODO: Install php, mongo, mysql, postgresql
 
 source ~/.zshrc
@@ -82,6 +81,8 @@ if [ $? -eq 0 ]; then
 else
     printf "${bold}\nYarn not installed\n"
 fi
+
+echo 'export PATH=$(pyenv root)/shims:$PATH' >> ~/.zshrc
 
 zsh py_deps.sh
 python --version

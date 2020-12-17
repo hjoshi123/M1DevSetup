@@ -38,9 +38,9 @@ Part 1 deals with installing basic dependencies necessary for developer to get s
 - [x] NVM (Node Version Manager)
 - [x] Heroku CLI
 - [x] Yarn
-- [ ] Python (WIP)
+- [x] Python
 
-Note that `Node.JS` would take a bit of time to install, as it needs to be built from source. This might involve usage of all cores and laptop getting a bit hot.
+Note that `Node.JS` would take a bit of time to install, as it needs to be built from source. This might involve usage of all cores and laptop getting a bit hot. `Python 3.9` is being installed currently under `Rosetta` as under Apple Silicon it shows a message of `arch not known`. This could be changed in the near future.
 
 ## Part 2
 
