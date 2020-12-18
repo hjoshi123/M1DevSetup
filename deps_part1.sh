@@ -30,6 +30,8 @@ if ! [ -x "$(command -v brew)" ]; then
     arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     echo 'alias ibrew="arch -x86_64 /usr/local/bin/brew"' >> ~/.zshrc
     source ~/.zshrc
+    ibrew --help
+    check_install_result "ibrew"
 else
     printf "\nBrew is already installed... Moving ahead...\n\n"
 fi
