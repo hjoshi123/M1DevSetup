@@ -44,6 +44,7 @@ commands_install=(
     openjdk
     redis
     pyenv
+    postgresql
 )
 
 for j in $commands_install
@@ -79,7 +80,7 @@ fi
 zsh node_deps.sh
 yarn --version
 if [ $? -eq 0 ]; then
-    printf "${bold}\nYarn installed successfully"
+    printf "${bold}\nYarn installed successfully\n"
 else
     printf "${bold}\nYarn not installed\n"
 fi

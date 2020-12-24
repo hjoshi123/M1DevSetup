@@ -37,6 +37,8 @@ Part 1 deals with installing basic dependencies necessary for developer to get s
 - [x] Node.JS (As of now, only v15 is supported)
 - [x] NVM (Node Version Manager)
 - [x] Heroku CLI
+- [x] Redis
+- [x] PostgreSQL
 - [x] Yarn
 - [x] Python
 
@@ -44,7 +46,7 @@ Note that `Node.JS` would take a bit of time to install, as it needs to be built
 
 ## Part 2
 
-- [ ] Docker (WIP)
+- [*] [Docker Developer Release](https://docs.docker.com/docker-for-mac/apple-m1/)
 
 ## Disclaimer
 
