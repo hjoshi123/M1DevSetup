@@ -37,14 +37,15 @@ else
 fi
 
 commands_install=(
-    zsh-syntax-highlighting 
-    go 
-    android-platform-tools 
-    htop 
+    zsh-syntax-highlighting
+    go
+    android-platform-tools
+    htop
     openjdk
     redis
     pyenv
     postgresql
+    sqlc
 )
 
 for j in $commands_install
