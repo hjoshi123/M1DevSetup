@@ -29,7 +29,7 @@ To execute the scripts, first you need to open the terminal of your choice prefe
 
 Part 1 deals with installing basic dependencies necessary for developer to get started. Following are the tools that are supported as of now. Do note that all dependencies installed through `brew` will be under Rosetta 2. Native Support for `brew` hasn't yet arrived completely.
 
-- [x] Homebrew
+- [x] Homebrew (Rosetta working, Native Work in Progress)
 - [x] Golang
 - [x] ADB
 - [x] OpenJDK
@@ -48,6 +48,10 @@ Note that `Node.JS` would take a bit of time to install, as it needs to be built
 ## Part 2
 
 - [x] [Docker Developer Release](https://docs.docker.com/docker-for-mac/apple-m1/)
+
+If you like what I do, maybe consider buying me a coffee/tea 🥺
+
+<a href="https://www.buymeacoffee.com/hjoshi123" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" width="150" ></a>
 
 ## Disclaimer
 
