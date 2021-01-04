@@ -47,7 +47,7 @@ Note that `Node.JS` would take a bit of time to install, as it needs to be built
 
 ## Part 2
 
-- [*] [Docker Developer Release](https://docs.docker.com/docker-for-mac/apple-m1/)
+- [x] [Docker Developer Release](https://docs.docker.com/docker-for-mac/apple-m1/)
 
 ## Disclaimer
 
