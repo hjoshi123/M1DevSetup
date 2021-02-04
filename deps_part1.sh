@@ -25,15 +25,28 @@ check_install_result() {
 printf "${bold}\n--------------------- Welcome to dev setup Part I ---------------------\n\n"
 printf "${bold}This includes setting up of homebrew and installing basic dependencies...\n"
 
-if ! [ -x "$(command -v brew)" ]; then
+arch -x86_64 /usr/local/bin/brew -v >> /dev/null
+if [ $? -eq 0 ]; then
+    printf "${bold}\nHomebrew is already installed under Rosetta..\n"
+else
     printf "${bold}\nHomebrew is not installed... Installing homebrew under Rosetta for now...\n"
     arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     echo 'alias ibrew="arch -x86_64 /usr/local/bin/brew"' >> ~/.zshrc
     source ~/.zshrc
     ibrew --help
     check_install_result "ibrew"
+fi
+
+/opt/homebrew/bin/brew -v >> /dev/null
+if [ $? -eq 0 ]; then
+    printf "${bold}\nM1 Homebrew already Installed\n"
 else
-    printf "\nBrew is already installed... Moving ahead...\n\n"
+    printf "${bold}\nInstalling M1 Homebrew\n..."
+    sudo mkdir -p /opt/homebrew
+    sudo chown -R $(whoami):staff /opt/homebrew
+    cd /opt
+    curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+    echo 'export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH' >> ~/.zshrc
 fi
 
 commands_install=(
@@ -47,6 +60,8 @@ commands_install=(
     postgresql
     sqlc
 )
+
+printf "\n"
 
 for j in $commands_install
 do
