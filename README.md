@@ -28,7 +28,7 @@ To execute the scripts, first you need to open the terminal of your choice prefe
 
 ## Part 1
 
-Part 1 deals with installing basic dependencies necessary for developer to get started. Following are the tools that are supported as of now. Do note that all dependencies installed through `brew` will be under Rosetta 2. Native Support for `brew` hasn't yet arrived completely.
+Part 1 deals with installing basic dependencies necessary for developer to get started. Following are the tools that are supported as of now. Native support for `brew` has arrived for many formulae and they have been changed accordingly. The Rosetta version of `brew` has been kept for comptability purposes but might be removed in later commits.
 
 - [x] Homebrew (Rosetta working, Native also working...)
 - [x] Golang
@@ -44,7 +44,7 @@ Part 1 deals with installing basic dependencies necessary for developer to get s
 - [x] Python
 - [x] sqlc - SQL Compiler
 
-Note that `Node.JS` would take a bit of time to install, as it needs to be built from source. This might involve usage of all cores and laptop getting a bit hot. `Python 3.9` is being installed currently under `Rosetta` as under Apple Silicon it shows a message of `arch not known`. This could be changed in the near future.
+Note that `Node.JS` would take a bit of time to install, as it needs to be built from source. This might involve usage of all cores and laptop getting a bit hot. `Python 3.9` is installed under Native M1 and `pyenv` has been setup under native `brew` which resides in `/opt/homebrew`
 
 ## Part 2
 

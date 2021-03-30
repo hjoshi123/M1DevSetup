@@ -8,7 +8,7 @@
 
 # Author: Hemant Joshi
 
-# TODO: Install php, mongo, mysql, postgresql
+# TODO: Add deps_part1 to PATH so that it can be called without zsh
 
 source ~/.zshrc
 
@@ -59,6 +59,8 @@ commands_install=(
     pyenv
     postgresql
     sqlc
+    php
+    mysql
 )
 
 printf "\n"
@@ -66,11 +68,11 @@ printf "\n"
 for j in $commands_install
 do
     printf "${bold}Installing $j\n"
-    ibrew list $j > /dev/null
+    brew list $j > /dev/null
     if [ $? -eq 0 ]; then
         printf "$j already installed successfully\n\n"
     else
-        ibrew install $j
+        brew install $j
         check_install_result "$j"
     fi
 done
@@ -84,12 +86,12 @@ fi
 
 # Installing heroku-cli
 printf "\n${bold} Heroku CLI\n"
-ibrew list heroku > /dev/null
+brew list heroku > /dev/null
 if [ $? -eq 0 ]; then
     printf "heroku installed successfully\n"
 else
-    ibrew tap heroku/brew > /dev/null
-    ibrew install heroku
+    brew tap heroku/brew > /dev/null
+    brew install heroku
     check_install_result "heroku"
 fi
 
