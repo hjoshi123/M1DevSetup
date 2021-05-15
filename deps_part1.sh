@@ -49,6 +49,8 @@ else
     echo 'export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH' >> ~/.zshrc
 fi
 
+source ~/.zshrc
+
 commands_install=(
     zsh-syntax-highlighting
     go
